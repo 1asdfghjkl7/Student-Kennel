@@ -1,5 +1,5 @@
 import React from "react";
 
 export default props => {
-  return <li key={props.animal.id}>{props.animal.name}</li>;
+  return <li>{props.animal.name}</li>;
 };
