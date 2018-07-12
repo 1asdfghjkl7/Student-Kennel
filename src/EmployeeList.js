@@ -14,7 +14,9 @@ export default class EmployeeList extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.employees.map(employee => <Employee employee={employee} />)}
+        {this.state.employees.map(employee => (
+          <Employee employee={employee} key={employee.id} />
+        ))}
       </React.Fragment>
     );
   }

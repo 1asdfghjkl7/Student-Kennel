@@ -11,8 +11,8 @@ export default class LocationList extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.locations.map((location, i) => (
-          <Location location={location} />
+        {this.state.locations.map(location => (
+          <Location location={location} key={location.id} />
         ))}
       </React.Fragment>
     );
