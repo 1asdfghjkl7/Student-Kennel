@@ -8,4 +8,5 @@ export default class APIManager {
   static getLocations = () => {
     return fetch("http://localhost:5002/locations").then(e => e.json());
   };
+  static getSearchResults = () => {};
 }
