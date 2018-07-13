@@ -6,7 +6,7 @@ export default props => {
   return (
     <div className="card" style={{ width: `18rem` }}>
       <div className="card-body">
-        <li className="card-title">{props.employee.name}</li>
+        <h5 className="card-title">{props.children}</h5>
         {
           <Link
             className="card-link"

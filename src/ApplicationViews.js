@@ -49,19 +49,32 @@ export default class ApplicationViews extends Component {
         <Route
           path="/animals/:animalId"
           render={props => {
-            return <Animal animal={props.location.state.animal} />;
+            return (
+              <Animal animal={props.location.state.animal}>
+                {props.location.state.animal.name}
+                {props.location.state.animal.breed}
+              </Animal>
+            );
           }}
         />
         <Route
           path="/employees/:employeeId"
           render={props => {
-            return <Employee employee={props.location.state.employee} />;
+            return (
+              <Employee employee={props.location.state.employee}>
+                {props.location.state.employee.name}
+              </Employee>
+            );
           }}
         />
         <Route
           path="/locations/:locationId"
           render={props => {
-            return <Location location={props.location.state.location} />;
+            return (
+              <Location location={props.location.state.location}>
+                {props.location.state.location.name}
+              </Location>
+            );
           }}
         />
       </React.Fragment>
