@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Employee from "./Employee";
+import APIManager from "./APIManager";
 
 export default class EmployeeList extends Component {
   state = {
@@ -7,9 +8,9 @@ export default class EmployeeList extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:5002/employees")
-      .then(e => e.json())
-      .then(employees => this.setState({ employees: employees }));
+    APIManager.getEmployees().then(employees =>
+      this.setState({ employees: employees })
+    );
   }
 
   render() {
