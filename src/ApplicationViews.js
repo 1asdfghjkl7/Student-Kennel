@@ -6,14 +6,46 @@ import EmployeeList from "./EmployeeList";
 import Animal from "./Animal";
 import Employee from "./Employee";
 import Location from "./Location";
+import Login from "./Login";
 export default class ApplicationViews extends Component {
+  isAuthenticated = () => localStorage.getItem("credentials") !== null;
   render() {
     return (
       <React.Fragment>
-        <Route exact path="/" />
-        <Route exact path="/locations" component={LocationList} />
-        <Route exact path="/animals" component={AnimalList} />
-        <Route exact path="/employees" component={EmployeeList} />
+        <Route
+          exact
+          path="/"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return <LocationList />;
+            } else {
+              return <Login />;
+            }
+          }}
+        />
+        <Route
+          exact
+          path="/animals"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return <AnimalList />;
+            } else {
+              return <Login />;
+            }
+          }}
+        />
+        <Route
+          exact
+          path="/employees"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return <EmployeeList />;
+            } else {
+              return <Login />;
+            }
+          }}
+        />
+        <Route path="/login" component={Login} />
         <Route
           path="/animals/:animalId"
           render={props => {
