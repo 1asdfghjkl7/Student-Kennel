@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Employee = ({ employee, children }) => {
+const Employee = ({ employee, children, checkOutEmployee }) => {
   return (
     <div className="card" style={{ width: `18rem` }}>
       <div className="card-body">
@@ -19,7 +19,7 @@ const Employee = ({ employee, children }) => {
             Details
           </Link>
         }
-        <a href="#" onClick={() => children.checkOutEmployee(employee.id)}>
+        <a href="#" onClick={() => checkOutEmployee(employee.id)}>
           Delete
         </a>
       </div>
@@ -28,7 +28,11 @@ const Employee = ({ employee, children }) => {
 };
 
 Employee.propTypes = {
-  employee: PropTypes.object
-}
+  employee: PropTypes.object,
+  employee: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
+  })
+};
 
-export default Employee
+export default Employee;
